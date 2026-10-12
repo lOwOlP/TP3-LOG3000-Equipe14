@@ -1,3 +1,9 @@
+/*
+ * Feuille de style de la calculatrice (chargée par templates/index.html).
+ * Thème sombre : boîtier gris foncé, chiffres gris, opérateurs orange.
+ */
+
+/* Centre la calculatrice horizontalement et verticalement dans la fenêtre. */
 body {
    font-family: Arial, sans-serif;
    background-color: #f0f0f0;
@@ -37,6 +43,7 @@ h1 {
    color: #fff;
 }
 
+/* 4 colonnes égales : correspond aux rangées de 4 boutons du HTML. */
 .buttons {
    display: grid;
    grid-template-columns: repeat(4, 1fr);
@@ -59,6 +66,8 @@ h1 {
    background-color: #555;
 }
 
+/* Les opérateurs et "=" se distinguent des chiffres par la couleur. Déclarée
+   après .btn pour que sa couleur l'emporte (même spécificité). */
 .operator {
    background-color: #ff9500;
 }
@@ -67,6 +76,7 @@ h1 {
    background-color: #e68a00;
 }
 
+/* États :active placés en dernier pour avoir priorité sur :hover lors du clic. */
 .btn:active {
    background-color: #444;
 }
