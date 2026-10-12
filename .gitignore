@@ -1,0 +1,14 @@
+# Environnement virtuel Python
+.venv/
+venv/
+
+# Fichiers compilés et caches
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Fichiers d'éditeur / système
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
