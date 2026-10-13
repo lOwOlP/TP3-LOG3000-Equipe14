@@ -33,6 +33,7 @@ automatisés, suivi des bogues par issues GitHub et correctifs par branches et p
 ├── app.py              # Serveur Flask : route "/" et fonction calculate()
 ├── operators.py        # Fonctions arithmétiques add, subtract, multiply, divide
 ├── requirements.txt    # Dépendances Python (Flask, pytest)
+├── pytest.ini          # Configuration de pytest (dossier tests/, chemin d'import)
 ├── templates/          # Interface HTML (voir templates/README.md)
 │   └── index.html
 ├── static/             # Feuille de style (voir static/README.md)
@@ -132,4 +133,6 @@ Le détail de ce qui est couvert est dans [`tests/README.md`](tests/README.md).
    à jour avec `main` en cas de conflit.
 7. Après la fusion, supprimer la branche et relancer toute la suite de tests sur `main`.
 
-On ne pousse jamais directement sur `main`.
+Les correctifs et nouvelles fonctionnalités passent toujours par une branche et une pull
+request ; seuls la mise en place, la documentation et les tests initiaux ont été poussés
+directement sur `main`.
