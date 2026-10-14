@@ -84,3 +84,18 @@ h1 {
 .operator:active {
    background-color: #cc7a00;
 }
+
+.clear {
+   background-color: #bdbcbb;
+   color: #0f0f0f;
+}
+
+.clear:active {
+   background-color: #a1a1a1;
+   color: #0f0f0f;
+}
+
+.clear:hover {
+   background-color: #929292;
+   color: #0f0f0f;
+}
