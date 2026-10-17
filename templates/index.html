@@ -20,7 +20,8 @@
            l'expression aux caractères que calculate() sait traiter. -->
       <input type="text" name="display" id="display" value="{{ result }}" readonly>
 
-      <!-- Grille 4x4 : chiffres en gris, opérateurs en orange (classe .operator).
+      <!-- Grille 4 colonnes : chiffres en gris, opérateurs en orange (classe .operator),
+           "+/-" et "C" en gris clair. "C" occupe seul la dernière rangée.
            Seul "=" est de type submit ; les autres ne font que modifier l'écran. -->
       <div class="buttons">
          <button type="button" class="btn" onclick="appendToDisplay('1')">1</button>
