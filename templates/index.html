@@ -20,7 +20,8 @@
            l'expression aux caractères que calculate() sait traiter. -->
       <input type="text" name="display" id="display" value="{{ result }}" readonly>
 
-      <!-- Grille 4x4 : chiffres en gris, opérateurs en orange (classe .operator).
+      <!-- Grille 4 colonnes : chiffres en gris, opérateurs en orange (classe .operator),
+           "+/-" et "C" en gris clair. "C" occupe seul la dernière rangée.
            Seul "=" est de type submit ; les autres ne font que modifier l'écran. -->
       <div class="buttons">
          <button type="button" class="btn" onclick="appendToDisplay('1')">1</button>
@@ -39,14 +40,17 @@
          <button type="button" class="btn operator" onclick="appendToDisplay('*')"></button>
 
          <button type="button" class="btn" onclick="appendToDisplay('0')">0</button>
-         <button type="button" class="btn" onclick="clearDisplay()">C</button>
+         <button type="button" class="btn negative" onclick="onNegatifClick()">+/-</button>
          <button type="submit" class="btn operator">=</button>
          <button type="button" class="btn operator" onclick="appendToDisplay('/')"></button>
+
+         <button type="button" class="btn clear" onclick="clearDisplay()">C</button>
       </div>
    </form>
 </div>
 
 <script>
+
    /**
     * Ajoute un caractère (chiffre ou opérateur) à la fin de l'écran.
     * @param {string} value - Caractère à ajouter, ex. '7' ou '+'.
@@ -55,6 +59,29 @@
    function appendToDisplay(value) {
       const display = document.getElementById('display');
       display.value += value;
+   }
+
+   /*
+    * Dernier opérande de l'expression, précédé de son contexte :
+    *   groupe 1 : début de chaîne ou opérateur qui précède le nombre ;
+    *   groupe 2 : moins unaire éventuel (signe du nombre) ;
+    *   groupe 3 : le nombre lui-même (entier ou décimal).
+    * Un "-" n'est considéré comme un signe que s'il suit un opérateur ou
+    * ouvre l'expression ; sinon c'est une soustraction (groupe 1).
+    */
+   const LAST_OPERAND = /(^|[+\-*/])(-?)(\d+(?:\.\d+)?)$/;
+
+   /**
+    * Inverse le signe du dernier nombre de l'écran (bouton "+/-").
+    * Sans nombre en fin d'expression, l'écran ne change pas.
+    * @returns {void}
+    */
+   function onNegatifClick(){
+      const display = document.getElementById('display');
+      display.value = display.value.replace(
+         LAST_OPERAND, (_match, operator, sign, number) => 
+         operator + (sign === '-' ? '': '-') + number
+      );
    }
 
    /**

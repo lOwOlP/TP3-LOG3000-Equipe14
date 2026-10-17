@@ -84,3 +84,24 @@ h1 {
 .operator:active {
    background-color: #cc7a00;
 }
+
+.negative {
+   background-color: #bdbcbb;
+   color: #0f0f0f;
+}
+
+.negative:active {
+   background-color: #a1a1a1;
+   color: #0f0f0f;
+}
+
+.negative:hover {
+   background-color: #929292;
+   color: #0f0f0f;
+}
+
+.clear {
+   background-color: #bdbcbb;
+   color: #0f0f0f;
+   grid-column: 1 / -1;
+}
