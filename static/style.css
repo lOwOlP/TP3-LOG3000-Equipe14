@@ -52,6 +52,8 @@ h1 {
 }
 
 .btn {
+   /* Inclut le padding de 30px dans width : sinon chaque bouton déborde de sa case. */
+   box-sizing: border-box;
    width: 100%;
    padding: 30px;
    font-size: 24px;
