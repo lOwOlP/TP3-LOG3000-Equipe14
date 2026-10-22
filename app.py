@@ -22,7 +22,7 @@ OPS = {
     '/': divide,
 }
 
-def is_sign_number(s: str, i:int): 
+def is_sign_number(s: str, i: int):
     """Indique si s[i] est le signe du nombre qui suit (et non une soustraction).
 
     Un '-' est un signe s'il ouvre l'expression ou suit directement un autre
@@ -69,7 +69,7 @@ def calculate(expr: str):
     # Parcours manuel plutôt que eval() : on n'exécute jamais de code fourni
     # par l'utilisateur et on garantit qu'il n'y a qu'une seule opération.
     for i, ch in enumerate(s):
-        if ch not in OPS or is_sign_number(s,i):
+        if ch not in OPS or is_sign_number(s, i):
             continue
         if op_pos != -1:
             raise ValueError("only one operator is allowed")
