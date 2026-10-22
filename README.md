@@ -17,6 +17,8 @@ l'expression au serveur, qui la calcule et réaffiche la page avec le résultat.
 **Dans la portée :**
 - Une seule opération binaire par calcul : `<nombre> <opérateur> <nombre>` (ex. `12+7`).
 - Les quatre opérations : addition `+`, soustraction `-`, multiplication `*`, division `/`.
+- Opérandes négatifs (ex. `-5+3`, `5+-2`) et bouton **+/-** qui inverse le signe du dernier
+  nombre saisi, ce qui permet aussi d'enchaîner sur un résultat négatif.
 - Messages d'erreur affichés dans l'écran (`Error: ...`) pour les expressions invalides.
 
 **Hors de la portée :**
@@ -83,7 +85,8 @@ Prérequis : **Git**, **Python 3.10+** et **pip**.
 2. Ouvrir <http://127.0.0.1:5000> dans un navigateur.
 3. Composer un calcul avec les boutons, par exemple `1` `2` `+` `7`.
 4. Appuyer sur **=** : le résultat (`19.0`) s'affiche dans l'écran.
-5. Appuyer sur **C** pour effacer l'écran.
+5. Appuyer sur **+/-** pour changer le signe du dernier nombre (ex. `5` devient `-5`).
+6. Appuyer sur **C** pour effacer l'écran.
 
 | Entrée | Résultat attendu |
 |---|---|
