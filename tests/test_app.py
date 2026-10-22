@@ -50,6 +50,11 @@ def test_calculate_negative_right_operand():
     assert calculate("5+-2") == pytest.approx(3)
 
 
+def test_calculate_subtract_negative_operand():
+    """Un "-" juste après l'opérateur "-" est le signe du second opérande : 5--2 = 7."""
+    assert calculate("5--2") == pytest.approx(7)
+
+
 # --- calculate() : expressions invalides ---------------------------------------
 
 @pytest.mark.parametrize("expr", [
